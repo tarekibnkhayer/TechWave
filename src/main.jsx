@@ -10,6 +10,9 @@ import Home from './pages/Home';
 import AuthProvider from './providers/AuthProvider';
 import Register from './pages/Register';
 import Login from './pages/Login';
+import AddProduct from './pages/AddProduct';
+import PrivateRoute from './private/PrivateRoute';
+import MyCart from './pages/MyCart';
 
 const router = createBrowserRouter([
   {
@@ -28,6 +31,14 @@ const router = createBrowserRouter([
       {
         path: '/login',
         element: <Login></Login>
+      },
+      {
+        path: '/addProduct',
+        element: <PrivateRoute><AddProduct></AddProduct></PrivateRoute>
+      },
+      {
+        path: '/myCart',
+        element: <PrivateRoute><MyCart></MyCart></PrivateRoute>
       }
     ]
   },

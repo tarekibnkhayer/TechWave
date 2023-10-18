@@ -1,14 +1,21 @@
+import { useContext } from "react";
 import { NavLink } from "react-router-dom";
+import { AuthContext } from "../../providers/AuthProvider";
 
 
 const Navbar = () => {
+  const {user, logoutUser} = useContext(AuthContext)
+  console.log(user)
     const navLinks = <>
     <NavLink to='/' className='text-xl lg:ml-24'>Home</NavLink>
     <NavLink to='/' className='text-xl lg:ml-24'>Add Product</NavLink>
     <NavLink to='/' className='text-xl lg:ml-24'>My Cart</NavLink>
     <NavLink to='/register' className='text-xl lg:ml-24'>Register</NavLink>
-    <NavLink to='/' className='text-xl lg:ml-24'>Login</NavLink>
+    <NavLink to='/login' className='text-xl lg:ml-24'>Login</NavLink>
     </>
+    const handleLogout = () => {
+      logoutUser().then().catch();
+    }
     return (
         <div className="navbar bg-base-100 mt-4">
   <div className="navbar-start">
@@ -29,8 +36,19 @@ const Navbar = () => {
     </ul>
   </div>
   <div className="navbar-end">
+    
+   {
+    user? <>
+    <p>{user.displayName}</p>
+    <button className="ml-4 text-lg btn" onClick={handleLogout}>Logout</button>
+    <img src={user.photoURL} alt="" className="w-12 rounded-full" />
+    </> 
+    :
+    <>
     <NavLink to='/login' className='mr-2 text-lg'>Login</NavLink>
    <img src="https://i.imgur.com/BSXLY0r.png" alt=""  className="w-12"/>
+    </>
+   }
   </div>
 </div>
     );

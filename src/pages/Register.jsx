@@ -13,11 +13,20 @@ const Register = () => {
         const email = form.email.value;
         const password = form.password.value;
         const photo = form.photo.value;
+        const user = {name, email, photo};
         createUser(email, password)
-        .then((result) => {
-            console.log(result.user);
+        .then(() => {
            updateUserInfo(name, photo)
            .then().catch();
+           fetch('http://localhost:5010/users', {
+            method: 'POST',
+            headers: {
+              'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+           })
+           .then(res => res.json())
+           .then(data => console.log(data));
             toast("User created successfully");
             form.reset();
         })

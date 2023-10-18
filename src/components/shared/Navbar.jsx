@@ -3,11 +3,11 @@ import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
     const navLinks = <>
-    <NavLink to='/' className='text-xl ml-24'>Home</NavLink>
-    <NavLink to='/' className='text-xl ml-24'>Add Product</NavLink>
-    <NavLink to='/' className='text-xl ml-24'>My Cart</NavLink>
-    <NavLink to='/' className='text-xl ml-24'>Register</NavLink>
-    <NavLink to='/' className='text-xl ml-24'>Login</NavLink>
+    <NavLink to='/' className='text-xl lg:ml-24'>Home</NavLink>
+    <NavLink to='/' className='text-xl lg:ml-24'>Add Product</NavLink>
+    <NavLink to='/' className='text-xl lg:ml-24'>My Cart</NavLink>
+    <NavLink to='/' className='text-xl lg:ml-24'>Register</NavLink>
+    <NavLink to='/' className='text-xl lg:ml-24'>Login</NavLink>
     </>
     return (
         <div className="navbar bg-base-100 mt-4">
@@ -20,7 +20,7 @@ const Navbar = () => {
         {navLinks}
       </ul>
     </div>
-    <img src="https://i.imgur.com/PkDLHQB.jpg" alt="" className="w-24" />
+    <img src="https://i.imgur.com/PkDLHQB.jpg" alt="website logo" className="lg:w-24 w-12" />
     <a className=" normal-case text-3xl font-bold">TechWave</a>
   </div>
   <div className="navbar-center hidden lg:flex">

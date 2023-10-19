@@ -1,5 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../providers/AuthProvider";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const MyCart = () => {
@@ -11,6 +13,20 @@ const MyCart = () => {
         .then(data => {setCart(data)
         console.log(data)});
     },[user.email]);
+    const handleDelete = id => {
+        console.log(id);
+        fetch(`http://localhost:5010/carts/${id}`,{
+            method: 'DELETE'
+        })
+        .then(res => res.json())
+        .then(data => {
+            if(data.deletedCount){
+                toast('This product successfully deleted from your cart');
+                const remaining = cart.filter(aCart => aCart._id !== id);
+                setCart(remaining);
+            }
+        })
+    }
     if(loading){
         return <span className="loading loading-spinner loading-lg"></span>
     }
@@ -37,7 +53,7 @@ const MyCart = () => {
             <td>{aCart.name}</td>
             <td>{aCart.brand}</td>
             <td>{aCart.price} tk</td>
-            <td className="btn">Delete</td>
+            <td className="btn" onClick={() => handleDelete(aCart._id)}>Delete</td>
           </tr>)
       }
      
@@ -45,6 +61,7 @@ const MyCart = () => {
     </tbody>
   </table>
 </div>
+<ToastContainer />
         </div>
     );
 };

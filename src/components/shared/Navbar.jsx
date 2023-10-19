@@ -4,7 +4,7 @@ import { AuthContext } from "../../providers/AuthProvider";
 
 
 const Navbar = () => {
-  const {user, logoutUser} = useContext(AuthContext)
+  const {user, logoutUser} = useContext(AuthContext);
     const navLinks = <>
     <NavLink to='/' className='text-xl lg:ml-24'>Home</NavLink>
     <NavLink to='/addProduct' className='text-xl lg:ml-24'>Add Product</NavLink>
@@ -14,7 +14,7 @@ const Navbar = () => {
     </>
     const handleLogout = () => {
       logoutUser().then().catch();
-    }
+    };
     return (
         <div className="navbar bg-base-100 mt-4">
   <div className="navbar-start">

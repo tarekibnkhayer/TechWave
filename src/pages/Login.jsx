@@ -3,9 +3,11 @@ import { NavLink } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { FcGoogle } from 'react-icons/fc';
+import { GoogleAuthProvider } from "firebase/auth";
 
 const Login = () => {
-    const {loginUser} = useContext(AuthContext);
+    const {loginUser, googleLogin} = useContext(AuthContext);
     const handleLogin = e => {
         e.preventDefault();
         const form = e.target;
@@ -19,7 +21,15 @@ const Login = () => {
             form.reset();
         })
         .catch(err =>  toast(err.message));
-    }
+    };
+    const handleGoogleLogin = () => {
+      const provider = new GoogleAuthProvider();
+      googleLogin(provider)
+      .then(() => {
+        toast("You are successfully logged in");
+      })
+      .catch(err => toast(err.message));
+    };
     return (
         <div className="hero bg-base-200">
   <div className="hero-content flex-col ">
@@ -47,6 +57,10 @@ const Login = () => {
           </div>
         </div>
       </form>
+      <div className="text-center">
+       <p className="text-xl">Login with:</p>
+        <button onClick={handleGoogleLogin}><FcGoogle className="text-2xl"></FcGoogle></button>
+       </div>
     </div>
   </div>
   <ToastContainer />

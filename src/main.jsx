@@ -16,11 +16,13 @@ import MyCart from './pages/MyCart';
 import BrandPage from './pages/BrandPage';
 import ProductDetails from './pages/ProductDetails';
 import Update from './pages/Update';
+import ErrorPage from './pages/ErrorPage';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: '/',

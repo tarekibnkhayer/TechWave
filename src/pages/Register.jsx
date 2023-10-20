@@ -14,6 +14,15 @@ const Register = () => {
         const password = form.password.value;
         const photo = form.photo.value;
         const user = {name, email, photo};
+        if(password.length < 6){
+          return toast("password should have at least 6 characters");
+         }
+         if(!/[A-Z]/.test(password)){
+           return toast("password should have at least one uppercase character");
+         }
+         if(!/[!@#$%^&*()_+{}[\]:;<>,.?~\\/-]/.test(password)){
+           return toast("please add at least a special character in your password!");
+         }
         createUser(email, password)
         .then(() => {
            updateUserInfo(name, photo)

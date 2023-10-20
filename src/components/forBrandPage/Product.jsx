@@ -15,11 +15,11 @@ const Product = ({product}) => {
             <p className='text-3xl font-bold'><span className='text-blue-400'>Product : </span>  {name}</p>
            <div className='flex gap-4 justify-center'>
            <p className='text-xl font-medium text-slate-700'> Brand: {brand}</p>
-            <p className='text-xl font-medium text-slate-700'>Category: {type}</p>
+            <p className='text-xl font-medium text-slate-700'>Type: {type}</p>
            </div>
            <p className='text-2xl font-bold'>Price: {price} tk</p>
             <Rating
-           emptySymbol={<img src="https://i.imgur.com/3jdUyDh.png" className="icon w-10" />}
+           emptySymbol={<img src="https://i.imgur.com/obLLOhZ.png" className="icon w-10" />}
            fullSymbol={<img src="https://i.imgur.com/Yc4Lop6.jpg" className="icon w-10 " />}
             initialRating={parseInt(rating)} className='block' />
            {

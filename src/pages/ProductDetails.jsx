@@ -39,7 +39,7 @@ const ProductDetails = () => {
        </div>
        <p className='text-6xl font-bold'>Price: {price} tk</p>
         <Rating
-       emptySymbol={<img src="https://i.imgur.com/3jdUyDh.png" className="icon w-10" />}
+       emptySymbol={<img src="https://i.imgur.com/obLLOhZ.png" className="icon w-10" />}
        fullSymbol={<img src="https://i.imgur.com/Yc4Lop6.jpg" className="icon w-10 " />}
         initialRating={parseInt(rating)} className='block' />
         <p className="text-xl">Short Description: {description}</p>

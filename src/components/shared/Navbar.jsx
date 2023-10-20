@@ -27,19 +27,19 @@ const Navbar = () => {
       </ul>
     </div>
     <img src="https://i.imgur.com/PkDLHQB.jpg" alt="website logo" className="lg:w-24 w-12" />
-    <a className=" normal-case text-3xl font-bold">TechWave</a>
+    <a className=" md:text-3xl font-bold">TechWave</a>
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1">
      {navLinks}
     </ul>
   </div>
-  <div className="navbar-end">
+  <div className="md:navbar-end">
     
    {
     user? <>
     <p>{user.displayName}</p>
-    <button className="ml-4 text-lg btn" onClick={handleLogout}>Logout</button>
+    <button className="ml-4  md:text-lg btn" onClick={handleLogout}>Logout</button>
     <img src={user.photoURL} alt="" className="w-12 rounded-full" />
     </> 
     :

@@ -31,8 +31,8 @@ const UserReview = () => {
             <p className="text-center text-3xl mt-10 mb-4 font-bold text-green-700">We Want to Hear from You</p>
             <hr />
          <form className="flex flex-col" onSubmit={handleUser} >
-         <input type="text" name="comment" id="" className="input input-bordered w-1/2 lg:ml-72 h-40 mt-10" placeholder="Leave us a comment"/>
-         <input type="submit" value="Submit" className="bg-green-950 w-32 mx-auto text-white px-4 py-2 rounded-lg text-xl hover:bg-green-400" />
+         <input type="text" name="comment" id="" className="input input-bordered w-full md:w-1/2 lg:ml-72 h-40 mt-10" placeholder="Leave us a comment"/>
+         <input type="submit" value="Submit" className="bg-green-950 md:w-32 w-24  md:mx-auto text-white px-4 py-2 rounded-lg text-xl hover:bg-green-400" />
          </form>
          <ToastContainer />
         </div>

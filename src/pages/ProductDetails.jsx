@@ -32,17 +32,17 @@ const ProductDetails = () => {
         <div className=''><img src={image} alt="product image"  className='w-1/2 mx-auto'/>
         </div>
        <div className=' text-center space-y-6'>
-        <p className='text-7xl font-bold'><span className='text-blue-400'>Product : </span>  {name}</p>
+        <p className='md:text-7xl font-bold'><span className='text-blue-400'>Product : </span>  {name}</p>
        <div className='flex gap-4 justify-center'>
-       <p className='text-5xl font-medium text-slate-700'> Brand: {brand} ||</p>
-        <p className='text-5xl font-medium text-slate-700'>Category: {type}</p>
+       <p className='md:text-5xl font-medium text-slate-700'> Brand: {brand} ||</p>
+        <p className='md:text-5xl font-medium text-slate-700'>Category: {type}</p>
        </div>
-       <p className='text-6xl font-bold'>Price: {price} tk</p>
+       <p className='md:text-6xl font-bold'>Price: {price} tk</p>
         <Rating
        emptySymbol={<img src="https://i.imgur.com/obLLOhZ.png" className="icon w-10" />}
        fullSymbol={<img src="https://i.imgur.com/Yc4Lop6.jpg" className="icon w-10 " />}
         initialRating={parseInt(rating)} className='block' />
-        <p className="text-xl">Short Description: {description}</p>
+        <p className="md:text-xl">Short Description: {description}</p>
         <button onClick={() => handleAddToCart(_id)} className='bg-green-900 block mx-auto px-4 py-2 w-1/2 rounded-xl text-white hover:bg-green-400 text-2xl'>Add to Cart </button>
        </div>
        <ToastContainer />

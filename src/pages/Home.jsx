@@ -20,7 +20,7 @@ const Home = () => {
     return (
         <div>
             <Banner></Banner>
-           <div className="lg:max-w-6xl md:max-w-2xl max-w-xs mx-auto mt-20">
+           <div className="lg:max-w-6xl  md:max-w-2xl max-w-xs mx-auto mt-20">
            <div className="grid md:grid-cols-3 gap-24">
                 {
                     brands.map(brand => <BrandCard key={brand._id} brand={brand}></BrandCard>)

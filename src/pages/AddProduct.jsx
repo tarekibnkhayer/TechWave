@@ -32,13 +32,13 @@ const AddProduct = () => {
     }
     return (
         <div>
-      <div className="bg-[#F4F3F0] rounded-md  p-20 w-2/3 mx-auto">
+      <div className="bg-[#F4F3F0] rounded-md  md:p-20 w-2/3 mx-auto">
         <h1 className="text-5xl  font-normal text-[#374151] text-center font-Rancho">
           Add New Product
         </h1>
         <form className="card-body" onSubmit={handleAddProduct}>
-          <div className="flex w-full gap-6">
-            <div className="w-1/2">
+          <div className="md:flex w-full gap-6">
+            <div className="md:w-1/2">
               <label className="label">
                 <span className="label-text">Name</span>
               </label>
@@ -50,7 +50,7 @@ const AddProduct = () => {
                 required
               />
             </div>
-            <div className="w-1/2">
+            <div className="md:w-1/2">
               <label className="label">
                 <span className="label-text">Brand Name</span>
               </label>
@@ -64,8 +64,8 @@ const AddProduct = () => {
       </select>
             </div>
           </div>
-          <div className="flex w-full gap-6">
-            <div className="w-1/2">
+          <div className="md:flex w-full gap-6">
+            <div className="md:w-1/2">
               <label className="label">
                 <span className="label-text">Type</span>
               </label>
@@ -77,7 +77,7 @@ const AddProduct = () => {
                 required
               />
             </div>
-            <div className="w-1/2">
+            <div className="md:w-1/2">
               <label className="label">
                 <span className="label-text">Rating</span>
               </label>
@@ -90,8 +90,8 @@ const AddProduct = () => {
               />
             </div>
           </div>
-          <div className="flex w-full gap-6">
-            <div className="w-1/2">
+          <div className="md:flex w-full gap-6">
+            <div className="md:w-1/2">
               <label className="label">
                 <span className="label-text">Price</span>
               </label>
@@ -103,7 +103,7 @@ const AddProduct = () => {
                 required
               />
             </div>
-            <div className="w-1/2">
+            <div className="md:w-1/2">
               <label className="label">
                 <span className="label-text">Description</span>
               </label>
@@ -116,7 +116,7 @@ const AddProduct = () => {
               />
             </div>
           </div>
-          <div className="w-full">
+          <div className="md:w-full">
             <label className="label">
               <span className="label-text">Image</span>
             </label>

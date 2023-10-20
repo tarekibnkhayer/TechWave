@@ -9,6 +9,11 @@ import TrendingProduct from "../components/forHomePage/TrendingProduct";
 const Home = () => {
     const brands = useLoaderData();
     const [trendingProducts, setTrendingProducts] = useState(null);
+    const [modeStyle, setModeStyle] = useState({
+        color:'black',
+        backgroundColor: 'white'
+    });
+    const [buttonText, setButtonText] = useState('Enable Dark Mode');
     const yes = 'yes';
     useEffect(() => {
         fetch(`http://localhost:5010/trending/${yes}`)
@@ -16,9 +21,26 @@ const Home = () => {
         .then(data => {
             setTrendingProducts(data);
         });
-    },[])
+    },[]);
+    const handleToggleMode = () => {
+        console.log("hello");
+        if(modeStyle.color == 'black'){
+            setModeStyle({
+                color:'white',
+                backgroundColor: 'black'
+            });
+            setButtonText("Enable Light Mode")
+        }
+        else{
+           setModeStyle({
+            color:'black',
+            backgroundColor: 'white'
+           });
+           setButtonText("Enable Dark Mode");
+        }
+    }
     return (
-        <div>
+        <div style={modeStyle}>
             <Banner></Banner>
            <div className="lg:max-w-6xl  md:max-w-2xl max-w-xs mx-auto mt-20">
            <div className="grid md:grid-cols-3 gap-24">
@@ -35,6 +57,7 @@ const Home = () => {
                 }
             </div>
            </div>
+           <button className="btn btn-secondary" onClick={handleToggleMode}>{buttonText}</button>
         </div>
     );
 };

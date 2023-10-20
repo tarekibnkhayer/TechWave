@@ -1,37 +1,45 @@
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const AddProduct = () => {
-    const handleAddProduct= e => {
-        e.preventDefault();
-        const form = e.target;
-        const name = form.name.value;
-        const brand = form.brand.value;
-        const type = form.type.value;
-        const rating = form.rating.value;
-        const price = form.price.value;
-        const description = form.description.value;
-        const image = form.image.value;
-        const product = {
-            name, brand, type, rating, price, description, image
-        };
-        fetch('http://localhost:5010/products', {
-            method: 'POST',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(product)
-        })
-        .then(res => res.json())
-        .then(data => {
-            if(data.insertedId){
-                toast("Product Added Successfully");
-            }
-        })
-    }
-    return (
-        <div>
+  const handleAddProduct = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const name = form.name.value;
+    const brand = form.brand.value;
+    const type = form.type.value;
+    const rating = form.rating.value;
+    const price = form.price.value;
+    const description = form.description.value;
+    const image = form.image.value;
+    const product = {
+      name,
+      brand,
+      type,
+      rating,
+      price,
+      description,
+      image,
+    };
+    fetch(
+      "https://techwave-server-h2fyqkqh6-tarek-ibn-khayers-projects.vercel.app/products",
+      {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(product),
+      }
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.insertedId) {
+          toast("Product Added Successfully");
+        }
+      });
+  };
+  return (
+    <div>
       <div className="bg-[#F4F3F0] rounded-md  md:p-20 w-2/3 mx-auto">
         <h1 className="text-5xl  font-normal text-[#374151] text-center font-Rancho">
           Add New Product
@@ -54,14 +62,14 @@ const AddProduct = () => {
               <label className="label">
                 <span className="label-text">Brand Name</span>
               </label>
-              <select  name="brand" className="input input-bordered w-full">
-        <option value="Apple">Apple</option>
-        <option value="Samsung">Samsung</option>
-        <option value="Sony">Sony</option>
-        <option value="Google">Google</option>
-        <option value="Intel">Intel</option>
-        <option value="Microsoft">Microsoft</option>
-      </select>
+              <select name="brand" className="input input-bordered w-full">
+                <option value="Apple">Apple</option>
+                <option value="Samsung">Samsung</option>
+                <option value="Sony">Sony</option>
+                <option value="Google">Google</option>
+                <option value="Intel">Intel</option>
+                <option value="Microsoft">Microsoft</option>
+              </select>
             </div>
           </div>
           <div className="md:flex w-full gap-6">
@@ -139,7 +147,7 @@ const AddProduct = () => {
       </div>
       <ToastContainer />
     </div>
-    );
+  );
 };
 
 export default AddProduct;

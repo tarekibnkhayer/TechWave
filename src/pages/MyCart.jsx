@@ -1,6 +1,5 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../providers/AuthProvider";
-import "react-toastify/dist/ReactToastify.css";
 import Swal from "sweetalert2";
 
 const MyCart = () => {

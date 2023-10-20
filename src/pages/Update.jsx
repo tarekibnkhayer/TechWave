@@ -1,6 +1,5 @@
 import { useLoaderData, useParams } from "react-router-dom";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import Swal from "sweetalert2";
 
 const Update = () => {
   const loadedProduct = useLoaderData();
@@ -40,7 +39,7 @@ const Update = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.modifiedCount) {
-          toast("Product Information Updated Successfully");
+          Swal.fire("Product Information Updated Successfully");
         }
       });
   };
@@ -161,7 +160,6 @@ const Update = () => {
           </div>
         </form>
       </div>
-      <ToastContainer />
     </div>
   );
 };

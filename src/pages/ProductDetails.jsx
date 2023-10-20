@@ -2,8 +2,7 @@ import { useLoaderData } from "react-router-dom";
 import Rating from "react-rating";
 import { useContext } from "react";
 import { AuthContext } from "../providers/AuthProvider";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import Swal from "sweetalert2";
 
 const ProductDetails = () => {
   const { user } = useContext(AuthContext);
@@ -26,7 +25,7 @@ const ProductDetails = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.insertedId) {
-          toast("Product Added Successfully");
+          Swal.fire("Product Added Successfully");
         }
       });
   };
@@ -67,7 +66,6 @@ const ProductDetails = () => {
           Add to Cart{" "}
         </button>
       </div>
-      <ToastContainer />
     </div>
   );
 };

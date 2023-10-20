@@ -1,10 +1,9 @@
 import { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import { FcGoogle } from 'react-icons/fc';
 import { GoogleAuthProvider } from "firebase/auth";
+import Swal from "sweetalert2";
 
 const Login = () => {
     const {loginUser, googleLogin} = useContext(AuthContext);
@@ -15,20 +14,19 @@ const Login = () => {
         const password = form.password.value;
         console.log(email, password);
         loginUser(email, password)
-        .then((result) => {
-            console.log(result.user);
-            toast("Logged in successfully");
+        .then(() => {
+            Swal.fire("Logged in successfully");
             form.reset();
         })
-        .catch(err =>  toast(err.message));
+        .catch(err =>  Swal.fire(err.message));
     };
     const handleGoogleLogin = () => {
       const provider = new GoogleAuthProvider();
       googleLogin(provider)
       .then(() => {
-        toast("You are successfully logged in");
+        Swal.fire("You are successfully logged in");
       })
-      .catch(err => toast(err.message));
+      .catch(err => Swal.fire(err.message));
     };
     return (
         <div className="hero bg-base-200">
@@ -62,8 +60,7 @@ const Login = () => {
         <button onClick={handleGoogleLogin}><FcGoogle className="text-2xl"></FcGoogle></button>
        </div>
     </div>
-  </div>
-  <ToastContainer />
+  </div>      
 </div>
     );
 };

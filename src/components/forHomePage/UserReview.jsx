@@ -1,7 +1,6 @@
 import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import Swal from "sweetalert2";
 
 const UserReview = () => {
   const { user } = useContext(AuthContext);
@@ -23,7 +22,7 @@ const UserReview = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.insertedId) {
-          toast("Your comment submitted successfully");
+          Swal.fire("Your comment submitted successfully");
           e.target.reset();
         }
       });
@@ -48,7 +47,6 @@ const UserReview = () => {
           className="bg-green-950 md:w-32 w-24  md:mx-auto text-white px-4 py-2 rounded-lg text-xl hover:bg-green-400"
         />
       </form>
-      <ToastContainer />
     </div>
   );
 };

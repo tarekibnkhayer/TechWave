@@ -1,5 +1,5 @@
-import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Swal from "sweetalert2";
 
 const AddProduct = () => {
   const handleAddProduct = (e) => {
@@ -34,7 +34,7 @@ const AddProduct = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.insertedId) {
-          toast("Product Added Successfully");
+          Swal.fire("Product Added Successfully");
         }
       });
   };
@@ -145,7 +145,6 @@ const AddProduct = () => {
           </div>
         </form>
       </div>
-      <ToastContainer />
     </div>
   );
 };

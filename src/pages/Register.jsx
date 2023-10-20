@@ -1,8 +1,7 @@
 import { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import Swal from "sweetalert2";
 
 const Register = () => {
   const { createUser, updateUserInfo } = useContext(AuthContext);
@@ -15,13 +14,13 @@ const Register = () => {
     const photo = form.photo.value;
     const user = { name, email, photo };
     if (password.length < 6) {
-      return toast("password should have at least 6 characters");
+      return Swal.fire("password should have at least 6 characters");
     }
     if (!/[A-Z]/.test(password)) {
-      return toast("password should have at least one uppercase character");
+      return Swal.fire("password should have at least one uppercase character");
     }
     if (!/[!@#$%^&*()_+{}[\]:;<>,.?~\\/-]/.test(password)) {
-      return toast("please add at least a special character in your password!");
+      return Swal.fire("please add at least a special character in your password!");
     }
     createUser(email, password)
       .then(() => {
@@ -38,10 +37,10 @@ const Register = () => {
         )
           .then((res) => res.json())
           .then((data) => console.log(data));
-        toast("User created successfully");
+        Swal.fire("User created successfully");
         form.reset();
       })
-      .catch((err) => toast(err.message));
+      .catch((err) => Swal.fire(err.message));
   };
   return (
     <div className="hero  bg-base-200">
@@ -110,7 +109,6 @@ const Register = () => {
           </form>
         </div>
       </div>
-      <ToastContainer />
     </div>
   );
 };
